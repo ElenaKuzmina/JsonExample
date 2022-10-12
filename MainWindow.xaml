@@ -1,0 +1,53 @@
+﻿<Window x:Class="JsonExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JsonExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DGProduct" 
+            Grid.Row="1"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Артикул"
+                    Binding="{Binding ProductArticleNumber}"/>
+                <DataGridTextColumn
+                    Header="Название товара"
+                    Binding="{Binding ProductName}"/>
+                <DataGridTextColumn
+                    Header="Категория"
+                    Binding="{Binding ProductCategory}"/>
+                <DataGridTextColumn
+                    Header="Стоимость"
+                    Binding="{Binding ProductCost}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Сохранить как .json"
+                    Name="BtnSaveJson"
+                    Click="BtnSaveJson_Click"
+                    Margin="5"
+                    Height="30"
+                    Width="150"/>
+            <TextBox Name="TxtSearch"
+                     Margin="5"
+                    Height="30"
+                    Width="150"/>
+            <Button Content="Найти в .json"
+                    Name="BtnSearch"
+                    Margin="5"
+                    Height="30"
+                    Width="150"
+                    Click="BtnSearch_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
